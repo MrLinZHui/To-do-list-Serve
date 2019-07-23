@@ -1,8 +1,15 @@
 package com.thoughtworks.parking_lot.domain;
 
 import javax.persistence.Entity;
-public class Dolist {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Dolist {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String listValue;
 
     private boolean isSelecting;
@@ -29,5 +36,13 @@ public class Dolist {
 
     public void setSelecting(boolean isSelecting) {
         this.isSelecting = isSelecting;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
